@@ -16,17 +16,16 @@ column1 = dbc.Col(
         dcc.Markdown(
             """
         
-            ## Your Value Proposition
+            ## Predict Hotel cancellations
 
-            Emphasize how the app will benefit users. Don't emphasize the underlying technology.
-
-            ✅ RUN is a running app that adapts to your fitness levels and designs personalized workouts to help you improve your running.
-
-            ❌ RUN is the only intelligent running app that uses sophisticated deep neural net machine learning to make your run smarter because we believe in ML driven workouts.
+            The rate of cancellations for hotels ranges from 20 - 40%, impacting revenue, 
+            rate projections, and so forth.
+            Can machine learning help hotels anticipate that a guest will cancel their 
+            reservation?
 
             """
         ),
-        dcc.Link(dbc.Button('Your Call To Action', color='primary'), href='/predictions')
+        dcc.Link(dbc.Button('Book a room and see!', color='primary'), href='/predictions')
     ],
     md=4,
 )
@@ -37,8 +36,9 @@ fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size
 
 column2 = dbc.Col(
     [
-        dcc.Graph(figure=fig),
-    ]
+        html.Img(src='assets/Four-Seasons.jpg', className='img-fluid')
+    ],
+    style={'margin-top': '10px'}
 )
 
 layout = dbc.Row([column1, column2])
